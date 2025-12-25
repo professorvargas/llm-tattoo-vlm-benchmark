@@ -25,10 +25,10 @@ from langchain_chroma import Chroma
 # ==================================================
 # Configuração inicial
 # ==================================================
-load_dotenv(".env")
+# load_dotenv(".env")
 
-st.set_page_config(page_title="Chatbot RAG + Vision + Stream", layout="wide")
-st.title("📚🖼️ Chatbot RAG + Vision (Streaming)")
+st.set_page_config(page_title="InkVision: Multimodal Tattoo Chatbot", layout="wide")
+st.title("💉🎨🖼️ InkVision: Multimodal Tattoo Chatbot")
 
 BASE_URL = "http://localhost:11434"
 
@@ -196,7 +196,7 @@ RESPOSTA:
 )
 
 # ==================================================
-# LLM TEXTO (COMENTÁRIOS MANTIDOS)
+# LLM TEXTO
 # ==================================================
 llm_text = ChatOllama(
     # URL do servidor Ollama
@@ -245,11 +245,35 @@ llm_text = ChatOllama(
 # ==================================================
 # LLM VISION (STREAMING)
 # ==================================================
+# llm_vision = ChatOllama(
+#     base_url=BASE_URL,
+#     model=MODEL_VISION,
+#     temperature=0.2,
+# )
 llm_vision = ChatOllama(
     base_url=BASE_URL,
     model=MODEL_VISION,
-    temperature=0.2,
+
+    # ------------------------------------------------------------------
+    # PARÂMETROS DE CRIATIVIDADE / GERAÇÃO (VISION)
+    # ------------------------------------------------------------------
+
+    # Controla o grau de interpretação subjetiva da imagem
+    # 0.0 → descrição literal / técnica
+    # 0.2–0.4 → análise clara e objetiva (RECOMENDADO)
+    # 0.6+ → interpretação criativa / especulativa
+    temperature=0.0,
+
+    # Nucleus sampling — diversidade lexical
+    #top_p=0.9,
+
+    # Top-K sampling — estabilidade
+    #top_k=40,
+
+    # Evita repetição excessiva
+    #repeat_penalty=1.1,
 )
+
 
 def analyze_image_stream(image_path: str, question: str):
     image_b64 = image_to_base64(image_path)
