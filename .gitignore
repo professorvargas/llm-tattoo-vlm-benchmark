@@ -5,14 +5,12 @@ __pycache__/
 # ambientes
 .venv/
 .venv_*/
-venv/
-.env
 
 # caches/modelos
 _cache/
 .cache/
 
-# datasets e derivados (NÃO versionar)
+# datasets e derivados
 datasets/
 datasets_white_eval/
 
