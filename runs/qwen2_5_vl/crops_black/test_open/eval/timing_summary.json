@@ -1,0 +1,13 @@
+{
+  "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+  "split": "test_open",
+  "condition": "crops_black",
+  "n_crops_ok": 632,
+  "n_total_lines": 632,
+  "total_seconds": 367.14,
+  "mean_seconds_per_crop": 0.551065,
+  "mean_seconds_excluding_first": 0.548612,
+  "median_seconds_per_crop": 0.42852,
+  "p90_seconds_per_crop": 0.705656,
+  "throughput_crops_per_second": 1.721416
+}

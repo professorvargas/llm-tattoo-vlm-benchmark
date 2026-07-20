@@ -1,0 +1,13 @@
+{
+  "model_id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+  "split": "test_closed",
+  "condition": "crops_black",
+  "n_crops_ok": 519,
+  "n_total_lines": 519,
+  "total_seconds": 1504.341,
+  "mean_seconds_per_crop": 2.897568,
+  "mean_seconds_excluding_first": 2.898418,
+  "median_seconds_per_crop": 3.55335,
+  "p90_seconds_per_crop": 3.8164,
+  "throughput_crops_per_second": 0.345002
+}

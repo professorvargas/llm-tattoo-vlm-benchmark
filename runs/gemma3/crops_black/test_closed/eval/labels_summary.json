@@ -1,0 +1,8 @@
+{
+  "split": "test_closed",
+  "condition": "crops_black",
+  "metric_summary_f1": {},
+  "metric_summary_fp": {},
+  "metric_summary_fn": {},
+  "n_perfect": 0
+}

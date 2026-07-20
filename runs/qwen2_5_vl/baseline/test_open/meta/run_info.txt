@@ -1,0 +1,7 @@
+model_id: Qwen/Qwen2.5-VL-7B-Instruct
+task: image-text-to-text
+dtype: bfloat16
+device: cuda:0
+temperature: 0.0 (default generation unless overridden)
+prompt_style: controlled vocab labels (comma-separated)
+note: smoke test ok

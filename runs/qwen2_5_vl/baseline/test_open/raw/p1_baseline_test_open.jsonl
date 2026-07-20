@@ -1,0 +1,315 @@
+{"image": "10257634316_82ecfe9f0f_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "bird", "fire", "unknown"], "raw_text": "eagle,bird,fire,unknown", "seconds": 2.328204}
+{"image": "10429570174_8bd5615cc2_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fox", "flower"], "raw_text": "fox, flower", "seconds": 0.703865}
+{"image": "10591546_6b4c3ae6fc_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.667373}
+{"image": "1061548768_18c14fe32a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger", "unknown"], "raw_text": "tiger, unknown", "seconds": 0.79283}
+{"image": "10698927505_dd8a0e040f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat", "ribbon"], "raw_text": "cat, ribbon", "seconds": 0.851092}
+{"image": "11230882023_996a504d2e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "knife", "unknown"], "raw_text": "dog, knife, unknown", "seconds": 0.41308}
+{"image": "11283665595_9989d78e01_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "unknown"], "raw_text": "dog, unknown", "seconds": 0.498127}
+{"image": "11359166775_b9f4db218f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["spider", "unknown"], "raw_text": "spider, unknown", "seconds": 0.476094}
+{"image": "1190943383_ae3154feb9_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["heart", "fire"], "raw_text": "heart, fire", "seconds": 0.351809}
+{"image": "1214438560_5f5d3340da_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus"], "raw_text": "octopus", "seconds": 0.323083}
+{"image": "12622482894_05b98cd18b_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf"], "raw_text": "wolf", "seconds": 0.21923}
+{"image": "1297380326_91eb937bcd_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.331681}
+{"image": "13023182595_3ee36c309a_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat", "crown", "flower", "tiger", "unknown"], "raw_text": "cat,crown,flower,tiger,unknown", "seconds": 0.633174}
+{"image": "13476008664_8453eba5bc_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown,", "seconds": 3.481211}
+{"image": "1349047506_422e20b269_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "fire", "unknown"], "raw_text": "bird, fire, unknown", "seconds": 0.501798}
+{"image": "136246728_ff20e95f22.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly"], "raw_text": "butterfly", "seconds": 0.511933}
+{"image": "136246846_fdcf8e0305_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle"], "raw_text": "eagle", "seconds": 0.408934}
+{"image": "136247112_55a1cc2ed4.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "leaf", "water"], "raw_text": "flower, leaf, water", "seconds": 0.642454}
+{"image": "1369571376_adb533f05b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "butterfly", "leaf", "unknown"], "raw_text": "flower,butterfly,leaf,unknown", "seconds": 1.036667}
+{"image": "13921285310_c123a56206_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "bird", "unknown"], "raw_text": "owl,bird,unknown", "seconds": 0.458155}
+{"image": "14109054308_502962d3bc_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf"], "raw_text": "wolf", "seconds": 0.345019}
+{"image": "14253079372_fbe2ec50fe_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.351148}
+{"image": "14316457645_a4cf83f80b_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fox", "unknown"], "raw_text": "fox, unknown", "seconds": 0.382524}
+{"image": "14333226936_78ab94a61a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "branch", "leaf", "unknown"], "raw_text": "bird, branch, leaf, unknown", "seconds": 0.602565}
+{"image": "14368899922_44e6de73cb_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fox", "bird", "leaf", "unknown"], "raw_text": "fox,bird,leaf,unknown", "seconds": 0.725597}
+{"image": "14396964747_c1cd1443b6_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf", "fire", "unknown"], "raw_text": "wolf, fire, unknown", "seconds": 0.913868}
+{"image": "143999566_6c7ee497a4.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.391859}
+{"image": "1443431643_3644b51de1_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark"], "raw_text": "shark", "seconds": 0.490827}
+{"image": "144390225_a0904738f8_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.325951}
+{"image": "14686866452_f2cfc2370a_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion"], "raw_text": "lion", "seconds": 0.37659}
+{"image": "14733344361_a6d283a623_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "unknown"], "raw_text": "fish, unknown", "seconds": 0.433983}
+{"image": "14986497866_49321908ea_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fox", "unknown"], "raw_text": "fox, unknown", "seconds": 0.296495}
+{"image": "15049187129_14350dd4e1_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["crown", "unknown"], "raw_text": "crown, unknown", "seconds": 0.32392}
+{"image": "15508190538_c37d9083bf_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fox", "flower", "leaf"], "raw_text": "fox, flower, leaf", "seconds": 0.792526}
+{"image": "15560129875_ccb9baed9b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "flower", "shield", "star"], "raw_text": "eagle, flower, shield, star", "seconds": 0.888162}
+{"image": "15891282754_027dc84057_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf", "fox", "unknown"], "raw_text": "wolf, fox, unknown", "seconds": 0.688925}
+{"image": "15947380605_88dce94f57_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird"], "raw_text": "bird", "seconds": 0.388944}
+{"image": "15973806749_4dda9a6b92_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger", "knife", "snake", "unknown"], "raw_text": "tiger,knife,snake,unknown", "seconds": 0.488855}
+{"image": "16144445157_ed1b123480_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark", "tiger", "unknown"], "raw_text": "shark,tiger,unknown", "seconds": 0.44149}
+{"image": "16147493304_4b127e586a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "butterfly", "flower", "branch", "leaf", "unknown"], "raw_text": "owl,butterfly,flower,branch,leaf,unknown", "seconds": 0.695722}
+{"image": "16447280210_653e4e0dc1_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "wolf"], "raw_text": "flower,wolf", "seconds": 0.297815}
+{"image": "16629809769_f9a1ece6fd_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "flower", "leaf", "star"], "raw_text": "anchor, flower, leaf, star", "seconds": 0.740357}
+{"image": "16650141856_09ca633b0c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown, unknown", "seconds": 0.759206}
+{"image": "16846294122_e1528210c0_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark", "unknown"], "raw_text": "shark, unknown", "seconds": 0.928581}
+{"image": "16880921700_745bc3cb62.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat"], "raw_text": "cat", "seconds": 0.382061}
+{"image": "16968988157_cdf6bfb2c3_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.280066}
+{"image": "170521602_19ffabed93_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower"], "raw_text": "flower", "seconds": 0.421699}
+{"image": "17131986600_d7f1439f61_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "flower", "heart", "knife", "leaf", "ribbon", "shield"], "raw_text": "bird, flower, heart, knife, leaf, ribbon, shield", "seconds": 0.883162}
+{"image": "17132323018_4bda109dff_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.351644}
+{"image": "17176387295_a1872df882_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["key", "octopus"], "raw_text": "key, octopus", "seconds": 0.507961}
+{"image": "17319676441_567d616114_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "unknown"], "raw_text": "bird, unknown", "seconds": 0.647667}
+{"image": "177836147_78e6e2b8cc.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark"], "raw_text": "shark", "seconds": 0.356066}
+{"image": "184406454_8501366ab0_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake", "unknown"], "raw_text": "snake, unknown", "seconds": 0.537699}
+{"image": "191734864_70a8dc2c5e_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "unknown"], "raw_text": "fish, unknown", "seconds": 0.482594}
+{"image": "19293533549_7353286d98_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "leaf"], "raw_text": "fish, leaf", "seconds": 0.637907}
+{"image": "19379102_ed5a0a6ec7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat", "tiger", "rope"], "raw_text": "cat,tiger,rope", "seconds": 0.550045}
+{"image": "196339401_64bbc02202_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "ribbon", "star"], "raw_text": "eagle, ribbon, star", "seconds": 0.677692}
+{"image": "19672492334_832e339acd_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat", "tiger", "unknown"], "raw_text": "cat,tiger,unknown", "seconds": 1.142123}
+{"image": "198601390_733d4f4d68_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "branch", "unknown"], "raw_text": "bird, branch, unknown", "seconds": 0.794501}
+{"image": "200274783_e49142cc77_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf", "dog", "leaf"], "raw_text": "wolf, dog, leaf", "seconds": 0.615837}
+{"image": "20169053994_47dfcd2fda_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["crown", "lion", "unknown"], "raw_text": "crown,lion,unknown", "seconds": 0.470516}
+{"image": "2066543748_b9ef6b703e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "star"], "raw_text": "butterfly, star", "seconds": 0.599684}
+{"image": "20797437232_057440342b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.413962}
+{"image": "20991691701_31c61d9fa5_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "branch", "leaf"], "raw_text": "owl, branch, leaf", "seconds": 1.098172}
+{"image": "2115742488_e3856a6208_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "flower", "unknown"], "raw_text": "fish, flower, unknown", "seconds": 0.899623}
+{"image": "2125042079_47f8c87c55_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["skull", "knife"], "raw_text": "skull, knife", "seconds": 0.639381}
+{"image": "2132735307_dac8eacfc4_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion"], "raw_text": "scorpion", "seconds": 0.430033}
+{"image": "2132735309_b1b94ac448_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["spider", "star", "unknown"], "raw_text": "spider,star,unknown", "seconds": 0.647522}
+{"image": "21459138362_d6d284131a_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat", "ribbon", "flower", "unknown"], "raw_text": "cat, ribbon, flower, unknown", "seconds": 0.423478}
+{"image": "21850693655_2279fef0f2_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus"], "raw_text": "octopus", "seconds": 0.259815}
+{"image": "21851707241_4cc5ca7447_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion", "branch"], "raw_text": "lion, branch", "seconds": 0.526899}
+{"image": "2204860993_221a825d42_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion", "crown", "star", "shield", "unknown"], "raw_text": "lion,crown,star,shield,unknown", "seconds": 1.009979}
+{"image": "2238516020_e6f5091200_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake"], "raw_text": "snake", "seconds": 0.522417}
+{"image": "2286344402_2248e4395c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["rope", "flower", "heart", "unknown"], "raw_text": "rope, flower, heart, unknown", "seconds": 0.860954}
+{"image": "23135339_52e4867193_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "crown", "unknown"], "raw_text": "eagle,crown,polska,unknown", "seconds": 0.673863}
+{"image": "23324029305_552f6aba1a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["knife", "unknown"], "raw_text": "knife, unknown", "seconds": 0.457951}
+{"image": "2338161932_ae4e187f0c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star", "rope", "unknown"], "raw_text": "star, rope, ship, penguin, unknown", "seconds": 0.643334}
+{"image": "235671169_00ccf4bfc0_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.570363}
+{"image": "23670535162_368c9e05b5_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl"], "raw_text": "owl", "seconds": 0.538113}
+{"image": "24097498036_0109c3fd08_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "gun"], "raw_text": "dog, gun", "seconds": 0.770321}
+{"image": "2420793063_6d3ca522cd_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star", "shield", "unknown"], "raw_text": "star, shield, unknown", "seconds": 0.65418}
+{"image": "2425785531_4037179968_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["key"], "raw_text": "key", "seconds": 0.291572}
+{"image": "2434309143_032899c598_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly"], "raw_text": "butterfly", "seconds": 0.375958}
+{"image": "2440430206_7639b780c0_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star"], "raw_text": "star", "seconds": 0.446541}
+{"image": "2473769907_23daeb60f4_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark", "water"], "raw_text": "shark, water", "seconds": 0.434585}
+{"image": "24800178595_2bcdfa0f97_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "knife", "rope", "unknown"], "raw_text": "flower, knife, rope, unknown", "seconds": 0.901223}
+{"image": "2484484246_dee82cf3cd_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["crown", "heart", "skull"], "raw_text": "crown, heart, skull", "seconds": 0.874756}
+{"image": "25159966971_a5c298b521_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl"], "raw_text": "owl", "seconds": 0.487743}
+{"image": "2531156458_8ce89b98f0_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion"], "raw_text": "scorpion", "seconds": 0.742136}
+{"image": "2540158828_78c6daa301_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly"], "raw_text": "butterfly", "seconds": 0.421211}
+{"image": "2555667232_3acaf3811a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "unknown"], "raw_text": "anchor, unknown", "seconds": 0.404657}
+{"image": "25677111733_22149e9bd9_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf"], "raw_text": "wolf", "seconds": 0.343065}
+{"image": "2598214054_37a3b2ff97_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger"], "raw_text": "tiger", "seconds": 0.335405}
+{"image": "26180155165_c08a3fb2ec_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["heart", "ribbon", "unknown"], "raw_text": "heart, ribbon, unknown", "seconds": 0.596823}
+{"image": "2677014831_23a833abe3_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["gun", "ribbon"], "raw_text": "gun, ribbon", "seconds": 0.829435}
+{"image": "26797776494_e762c3061d_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "branch", "leaf", "unknown"], "raw_text": "owl, branch, leaf, unknown", "seconds": 0.987664}
+{"image": "26797786314_bd90e4fd0c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fox", "unknown"], "raw_text": "fox, unknown", "seconds": 0.600046}
+{"image": "2736064731_74d671a6ed_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "fire", "unknown"], "raw_text": "fish, fire, unknown", "seconds": 0.51335}
+{"image": "27407169579_639c370c8b_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.420484}
+{"image": "276459960_b2a65aa801_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "star"], "raw_text": "fish, star", "seconds": 0.468325}
+{"image": "27722487000_29fa577b3c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "rope"], "raw_text": "anchor, rope", "seconds": 0.584873}
+{"image": "27729328910_42ed6a60e2_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "fish", "unknown"], "raw_text": "flower,fish,unknown", "seconds": 0.697308}
+{"image": "27729334810_67dc61ed67_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "unknown"], "raw_text": "dog, unknown", "seconds": 0.774723}
+{"image": "2789973917_afc8b3405c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["heart"], "raw_text": "heart", "seconds": 0.645523}
+{"image": "27980886684_92c378b36d_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "rope"], "raw_text": "anchor, rope", "seconds": 0.715938}
+{"image": "28218461316_fd1eff1b16_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["key"], "raw_text": "key", "seconds": 0.360339}
+{"image": "2841753731_50730f2a03_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["heart", "unknown"], "raw_text": "heart, unknown", "seconds": 0.291363}
+{"image": "28464121005_9d7011328b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "flower", "unknown"], "raw_text": "bird,flower,unknown", "seconds": 0.495292}
+{"image": "28710972086_e98bed069d_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion"], "raw_text": "lion", "seconds": 0.50786}
+{"image": "2880409820_fe871b365e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.513846}
+{"image": "2888428110_b0fe405f5c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger"], "raw_text": "tiger", "seconds": 0.65047}
+{"image": "29224132015_7c6a45a8f1_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion"], "raw_text": "lion", "seconds": 0.676371}
+{"image": "292379845_26c33a10e8_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "heart", "star"], "raw_text": "dog, heart, star", "seconds": 0.664431}
+{"image": "2932192974_96a4d66174_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "unknown"], "raw_text": "eagle, unknown", "seconds": 0.607033}
+{"image": "29333780944_905d2d0c00_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.388412}
+{"image": "29337046410_48eafdb877.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion", "bird", "unknown"], "raw_text": "lion,bird,unknown", "seconds": 0.577928}
+{"image": "293773415_f97b178ee8_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.527862}
+{"image": "29417566150_b593626b56_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fire", "heart", "ribbon", "flower"], "raw_text": "fire, heart, ribbon, flower", "seconds": 0.823485}
+{"image": "29610099350_8817ed4988_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "unknown"], "raw_text": "fish, unknown", "seconds": 0.866343}
+{"image": "2961692941_330c05474c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["leaf", "ribbon", "unknown"], "raw_text": "leaf, ribbon, unknown", "seconds": 0.738696}
+{"image": "29859187_c49e8be9c8_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "heart", "star"], "raw_text": "butterfly, heart, star", "seconds": 0.869231}
+{"image": "298737519_3497887e29_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat", "unknown"], "raw_text": "cat, unknown", "seconds": 0.653867}
+{"image": "29979097050_250edbc4fa_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["gun", "ribbon", "leaf", "unknown"], "raw_text": "gun, ribbon, leaf, unknown", "seconds": 1.083187}
+{"image": "30021237795_43489802cb_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "unknown"], "raw_text": "flower, unknown", "seconds": 0.476359}
+{"image": "30240618066_f2a7f4b013_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat"], "raw_text": "cat", "seconds": 0.741441}
+{"image": "3059025027_88ab28f1ba_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "leaf"], "raw_text": "butterfly, leaf", "seconds": 0.609027}
+{"image": "3102166900_e7df3c3d16_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star", "skull"], "raw_text": "star, skull", "seconds": 0.721539}
+{"image": "3127479926_1a55a648c8_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "unknown"], "raw_text": "bird, unknown", "seconds": 0.669478}
+{"image": "3173145069_3a5e16e4a7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "star"], "raw_text": "butterfly,butterfly,butterfly,star,star,star", "seconds": 0.776404}
+{"image": "3173145085_f80083c489_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger"], "raw_text": "tiger", "seconds": 0.56537}
+{"image": "3185495185_bb047a67a2_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "fire", "star", "unknown"], "raw_text": "bird, fire, star, unknown", "seconds": 0.508722}
+{"image": "32055514_d830610d95_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus"], "raw_text": "octopus", "seconds": 0.479496}
+{"image": "32095490791_b1a3438559_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "unknown"], "raw_text": "fish, unknown", "seconds": 0.519899}
+{"image": "32110365423_ba185319cb_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["mermaid", "ribbon", "unknown"], "raw_text": "mermaid, ribbon, unknown", "seconds": 0.616292}
+{"image": "32537377192_9519c4d14e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "leaf", "unknown"], "raw_text": "flower, leaf, unknown", "seconds": 0.744086}
+{"image": "33291900_2c68a27972_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "crown", "shield", "unknown"], "raw_text": "bird,crown,shield,unknown", "seconds": 0.671395}
+{"image": "333736612_713d886b86_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.717915}
+{"image": "333750314_f34a54327a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.599218}
+{"image": "333751045_82f2580d44_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower"], "raw_text": "flower", "seconds": 0.570455}
+{"image": "333751271_2cd8de3ec5_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["branch", "flower"], "raw_text": "branch, flower", "seconds": 0.730561}
+{"image": "333752078_e961b57c2a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.565346}
+{"image": "333930252_428e3106a3_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "unknown"], "raw_text": "butterfly, unknown", "seconds": 0.711483}
+{"image": "3345368332_bc7dcc528f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "unknown"], "raw_text": "owl, unknown", "seconds": 0.840703}
+{"image": "3350273150_9995da7cf7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "leaf", "unknown"], "raw_text": "flower, leaf, unknown", "seconds": 0.735354}
+{"image": "33820259734_7ec682ccf8_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["skull", "wolf", "star", "ribbon", "unknown"], "raw_text": "skull,wolf,star,ribbon,unknown", "seconds": 1.216546}
+{"image": "3387735731_d0b9fdbf9d_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake", "crown"], "raw_text": "snake, crown", "seconds": 0.65076}
+{"image": "3404330553_7361f7e245_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "flower", "ribbon", "unknown"], "raw_text": "anchor, flower, ribbon, unknown", "seconds": 1.129646}
+{"image": "34099726533_a3e7d99afe_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.594223}
+{"image": "34523482290_1d0bb93c58_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.525893}
+{"image": "3495280462_3142bb2984_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "rope", "unknown"], "raw_text": "bird, rope, unknown", "seconds": 0.77229}
+{"image": "3540944694_20c249d1e7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.560794}
+{"image": "3546531666_fb56710689_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "unknown"], "raw_text": "butterfly, unknown", "seconds": 0.919595}
+{"image": "3595617338_213f366f9e_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.529802}
+{"image": "3652583231_723dd291a0_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.423942}
+{"image": "3653376720_c48af5b61a_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.394481}
+{"image": "36762983895_e000d9c47a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.582123}
+{"image": "3677001733_027408a653_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["skull", "fire"], "raw_text": "skull, fire", "seconds": 0.658418}
+{"image": "3677816808_0c17fb3f63_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf"], "raw_text": "wolf", "seconds": 0.505341}
+{"image": "36821588276_dd421b68e1_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "unknown"], "raw_text": "fish, unknown", "seconds": 0.681972}
+{"image": "36845095586_4af769ef22_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark", "water"], "raw_text": "shark,water", "seconds": 0.731343}
+{"image": "3721244708_a699d25cc7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "diamond", "leaf", "unknown"], "raw_text": "flower,diamond,leaf,unknown", "seconds": 0.952452}
+{"image": "3721244770_dc004d49cf_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "diamond", "leaf", "unknown"], "raw_text": "flower,diamond,leaf,unknown", "seconds": 1.035138}
+{"image": "381041633_79d29c3760_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "butterfly", "leaf"], "raw_text": "flower,butterfly,leaf", "seconds": 0.919768}
+{"image": "3854664683_a886b9cf9b_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake"], "raw_text": "snake", "seconds": 0.470681}
+{"image": "3854664841_8eb9780724_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake"], "raw_text": "snake", "seconds": 0.478956}
+{"image": "3876066427_738441158c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["knife", "owl", "ribbon", "unknown"], "raw_text": "knife, owl, ribbon, unknown", "seconds": 0.91693}
+{"image": "3926034804_e20e932e0b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat"], "raw_text": "cat, cat", "seconds": 0.673876}
+{"image": "393321350_f38c3eecfc_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.568976}
+{"image": "393321554_9d41e91c8b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger", "unknown"], "raw_text": "tiger, unknown", "seconds": 0.957557}
+{"image": "3935044426_b3e8b3696a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "leaf"], "raw_text": "flower, leaf", "seconds": 0.656007}
+{"image": "3944459891_9c65ecda4e_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown", "bird"], "raw_text": "unknown,bird,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,unknown,", "seconds": 4.219871}
+{"image": "396599064_ad4aee608c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion"], "raw_text": "scorpion", "seconds": 0.671381}
+{"image": "3968908147_0670a56468_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "flower", "rope"], "raw_text": "anchor, flower, rope", "seconds": 0.822217}
+{"image": "3969662974_5baebb7808_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "flower", "rope", "ribbon", "unknown"], "raw_text": "anchor, flower, rope, ribbon, unknown", "seconds": 1.025302}
+{"image": "4034732033_ba1bb7cdb8_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "diamond", "unknown"], "raw_text": "octopus,diamond,unknown", "seconds": 0.84559}
+{"image": "4035485428_bacf80c07e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "diamond", "unknown"], "raw_text": "octopus,diamond,unknown", "seconds": 0.938807}
+{"image": "4067163000_7e920122e5_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["mermaid", "fish", "unknown"], "raw_text": "mermaid, fish, unknown", "seconds": 1.201805}
+{"image": "40761743_47378e23c9_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.57594}
+{"image": "408294006_e037712460_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "unknown"], "raw_text": "butterfly, unknown", "seconds": 0.791568}
+{"image": "4094434181_a7df99a17b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.648529}
+{"image": "41242590584_f5c73fc781_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "branch", "flower", "leaf"], "raw_text": "bird, branch, flower, leaf", "seconds": 1.056676}
+{"image": "4168413537_43ed569338_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "heart"], "raw_text": "flower, heart", "seconds": 0.847223}
+{"image": "4183261460_cba63a63ed_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf"], "raw_text": "wolf", "seconds": 0.453048}
+{"image": "4185045831_32e3be06d2_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "star", "unknown"], "raw_text": "bird,bird,star,unknown", "seconds": 0.973333}
+{"image": "421571751_d31b16d3b8_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion", "tiger", "unknown"], "raw_text": "lion,tiger,unknown", "seconds": 0.761784}
+{"image": "4244973322_e0d7d32a8d_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "star", "ribbon", "unknown"], "raw_text": "octopus, star, ribbon, unknown", "seconds": 1.023945}
+{"image": "4246062763_63df080fa0_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star", "unknown"], "raw_text": "star, ship, unknown", "seconds": 0.831271}
+{"image": "42638223194_92f8ae8c59_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake", "flower", "leaf", "spider"], "raw_text": "snake,flower,leaf,spider", "seconds": 0.839666}
+{"image": "4325719068_3df870dd7f_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "scorpion", "unknown"], "raw_text": "bird,scorpion,unknown", "seconds": 0.865743}
+{"image": "43260335545_56066d4c99_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.544144}
+{"image": "4349347070_197619ac02_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "rope"], "raw_text": "anchor, rope", "seconds": 0.761835}
+{"image": "4355268434_ee213748c2_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "rope", "star"], "raw_text": "anchor, rope, star", "seconds": 0.884568}
+{"image": "4367205283_45ede1dcb1_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger", "branch", "leaf"], "raw_text": "tiger, branch, leaf", "seconds": 0.857212}
+{"image": "4367206169_0353683911_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.569626}
+{"image": "4367209983_6d6461ae50_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.599074}
+{"image": "4367375653_fb77338224_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower"], "raw_text": "flower", "seconds": 0.596315}
+{"image": "4367950042_da5faf6052_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shield", "skull"], "raw_text": "shield, skull", "seconds": 0.894449}
+{"image": "4367960530_9f59d2da40_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "flower", "leaf", "snake", "water"], "raw_text": "fish, flower, leaf, snake, water", "seconds": 1.083957}
+{"image": "4368131390_598c81a349_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger", "branch", "flower"], "raw_text": "tiger, branch, flower", "seconds": 0.921318}
+{"image": "43820315_58c4648776_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star"], "raw_text": "star", "seconds": 0.627948}
+{"image": "4447796086_d775a9311f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake"], "raw_text": "snake", "seconds": 0.53687}
+{"image": "4448700896_08bd52abd7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "unknown"], "raw_text": "flower, unknown", "seconds": 0.746141}
+{"image": "4516899889_69c0dea30e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "flower", "unknown"], "raw_text": "dog, flower, unknown", "seconds": 0.778091}
+{"image": "4534022302_da367737ab_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly", "flower", "unknown"], "raw_text": "butterfly, flower, unknown", "seconds": 0.793619}
+{"image": "4548590383_bb13665d2b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "branch", "leaf"], "raw_text": "bird, branch, leaf", "seconds": 0.873769}
+{"image": "456865833_b528033e55_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star", "unknown"], "raw_text": "star, unknown", "seconds": 0.866222}
+{"image": "4611820983_fab1430083_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "fire", "anchor"], "raw_text": "eagle, fire, anchor", "seconds": 0.997988}
+{"image": "4617297050_6262a40c03_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["knife", "skull"], "raw_text": "knife, skull", "seconds": 0.669672}
+{"image": "462105216_cfb692dcfd_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger", "unknown"], "raw_text": "tiger, unknown", "seconds": 0.760378}
+{"image": "4625809972_afa3b5d6b5.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "flower", "heart", "ribbon", "unknown"], "raw_text": "bird, flower, heart, ribbon, unknown", "seconds": 0.875793}
+{"image": "4641247296_3ff28b0e2b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "butterfly", "key", "ribbon", "flower", "unknown"], "raw_text": "owl,butterfly,key,ribbon,flower,unknown", "seconds": 1.095422}
+{"image": "4712671433_a8776375c4_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus"], "raw_text": "octopus", "seconds": 0.676256}
+{"image": "472670198_bbd1afbd54_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.597929}
+{"image": "472685549_0bacb80128_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.560599}
+{"image": "4764284843_1b6868403f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.554822}
+{"image": "4818229540_4319670d4b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "rope", "shield", "unknown"], "raw_text": "anchor, rope, shield, unknown", "seconds": 0.91724}
+{"image": "4841397803_ba5ea943f9_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.659956}
+{"image": "4864449313_0cfd89fc1c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake", "unknown"], "raw_text": "snake, unknown", "seconds": 0.745766}
+{"image": "490323157_67bc5d5657_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake", "unknown"], "raw_text": "snake, unknown", "seconds": 0.615319}
+{"image": "4931837433_a4acb00713_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["mermaid", "octopus", "flower"], "raw_text": "mermaid, octopus, flower", "seconds": 0.938324}
+{"image": "4932809766_98cedb4a9d_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["crown", "skull"], "raw_text": "crown, skull", "seconds": 0.836647}
+{"image": "4954893280_86e164e92f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "unknown"], "raw_text": "eagle, unknown", "seconds": 0.779269}
+{"image": "5040333755_82c33d7bd3_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "unknown"], "raw_text": "flower, unknown", "seconds": 0.662284}
+{"image": "51210487081_2cba4c2543_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.813342}
+{"image": "5145180714_0433b644b7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "butterfly", "unknown"], "raw_text": "flower,butterfly,unknown", "seconds": 0.78772}
+{"image": "5176662331_9ced8ec06d_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "unknown"], "raw_text": "flower, unknown", "seconds": 1.011851}
+{"image": "5274113217_40094ac956_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["crown", "dog", "heart", "unknown"], "raw_text": "crown,dog,heart,unknown", "seconds": 0.965379}
+{"image": "5314646323_0c848b75b1_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl"], "raw_text": "owl", "seconds": 0.646381}
+{"image": "5333175007_8a6d90c125_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["key", "flower"], "raw_text": "key, flower", "seconds": 0.564235}
+{"image": "5348568897_970836082a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.667225}
+{"image": "5353440057_aaf1bcda78_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "flower", "leaf", "butterfly"], "raw_text": "bird, flower, leaf, butterfly", "seconds": 1.099847}
+{"image": "5358157545_6549218e14_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.584128}
+{"image": "540566749_2740625e15_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "flower", "heart", "ribbon"], "raw_text": "bird, flower, heart, ribbon", "seconds": 0.933285}
+{"image": "540567697_ca89490b33_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake", "tiger", "unknown"], "raw_text": "snake,tiger,unknown", "seconds": 0.956411}
+{"image": "540616819_f3eecccc0f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "unknown"], "raw_text": "flower, unknown", "seconds": 0.643725}
+{"image": "5414758369_e66dc056c7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "flower", "heart", "leaf"], "raw_text": "bird, flower, heart, leaf", "seconds": 0.900786}
+{"image": "5435493911_b12e20b196_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "leaf", "unknown"], "raw_text": "owl, leaf, unknown", "seconds": 0.827534}
+{"image": "5463290058_b55b77d824_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark", "unknown"], "raw_text": "shark, unknown", "seconds": 0.764116}
+{"image": "5530233703_b99a067f35_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["snake", "leaf", "ribbon"], "raw_text": "snake, leaf, ribbon", "seconds": 0.734543}
+{"image": "5578763491_7d59674323_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus"], "raw_text": "octopus", "seconds": 0.439523}
+{"image": "5618057090_f1926a14ec_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.548437}
+{"image": "5618057854_d75ed4264f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.498846}
+{"image": "5675770412_30a146b413_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "flower", "unknown"], "raw_text": "fish, flower, unknown", "seconds": 0.903539}
+{"image": "5743966864_46537618c7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark", "branch", "fish", "water"], "raw_text": "shark, branch, fish, water", "seconds": 1.132397}
+{"image": "5842464786_1c86810c1c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "skull", "water"], "raw_text": "fish, skull, water", "seconds": 0.911695}
+{"image": "5856450219_1ef8da77fb_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["mermaid"], "raw_text": "mermaid", "seconds": 0.82785}
+{"image": "5886467573_0fc02b6267_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "wolf", "unknown"], "raw_text": "dog,wolf,unknown", "seconds": 0.962044}
+{"image": "5889241537_f8ee1b465c_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown, unknown", "seconds": 0.747719}
+{"image": "5895241078_0e6b771509_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["spider"], "raw_text": "spider, spiderweb", "seconds": 0.839941}
+{"image": "5940887673_fa88cf1cc5_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "branch", "leaf", "ribbon"], "raw_text": "owl, branch, leaf, ribbon, owl", "seconds": 1.09709}
+{"image": "5996666605_2ccfa6be25_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "owl", "ribbon", "unknown"], "raw_text": "bird, owl, ribbon, unknown", "seconds": 0.940573}
+{"image": "6004262107_c824269eaa_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "unknown"], "raw_text": "octopus, unknown", "seconds": 0.67788}
+{"image": "6006790547_3662ee24d3_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["key"], "raw_text": "key", "seconds": 0.664714}
+{"image": "6007333294_d22aface75_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["key"], "raw_text": "key", "seconds": 0.72919}
+{"image": "6044455653_5677ddab2b_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["key", "ribbon", "flower", "unknown"], "raw_text": "key, ribbon, flower, unknown", "seconds": 1.00191}
+{"image": "6074233036_d25a1b2311_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "eagle", "tiger", "unknown"], "raw_text": "bird,eagle,tiger,unknown", "seconds": 1.041828}
+{"image": "6090502359_67ca8602ec_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.652598}
+{"image": "6100385616_6c82ecfe38_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["spider"], "raw_text": "spider", "seconds": 0.821273}
+{"image": "6132910013_12732e3980_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl"], "raw_text": "owl", "seconds": 0.612356}
+{"image": "6256633728_9738cb40df_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "water"], "raw_text": "fish, water", "seconds": 0.705882}
+{"image": "6327013881_63f9895c28_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.564502}
+{"image": "6361031275_8d955416f2_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion", "unknown"], "raw_text": "scorpion, unknown", "seconds": 0.942285}
+{"image": "6527674145_ba179aa742_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["crown", "eagle", "ribbon", "shield", "unknown"], "raw_text": "crown,eagle,ribbon,shield,unknown", "seconds": 1.088275}
+{"image": "6698322017_01ebe9e9de_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["dog", "unknown"], "raw_text": "dog, unknown", "seconds": 0.840062}
+{"image": "6710754759_fe11927a39_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.604858}
+{"image": "6746178919_2eee617980_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "heart", "owl", "rope"], "raw_text": "bird, heart, owl, rope", "seconds": 0.840207}
+{"image": "6746179175_67f9535a9f_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "heart", "unknown"], "raw_text": "bird, heart, unknown", "seconds": 0.676551}
+{"image": "6746181435_bd104d637c_w.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower"], "raw_text": "flower", "seconds": 0.345505}
+{"image": "6746183507_e71c73f31b_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["crown", "heart"], "raw_text": "crown, heart", "seconds": 0.724253}
+{"image": "6765994891_c5f4faf3f4_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "branch", "unknown"], "raw_text": "bird, branch, unknown", "seconds": 0.822956}
+{"image": "6769365257_7dc4a9b1c6_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "unknown"], "raw_text": "octopus, unknown", "seconds": 1.03035}
+{"image": "6784412632_86cd19efca_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "leaf", "unknown"], "raw_text": "flower, leaf, unknown", "seconds": 0.831659}
+{"image": "6804253734_fd1fc89dc6_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["anchor", "rope"], "raw_text": "anchor, rope", "seconds": 0.631694}
+{"image": "6889762013_583413b548_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "snake"], "raw_text": "octopus, snake", "seconds": 0.729797}
+{"image": "6898090674_48f6620f73_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.590828}
+{"image": "6922696479_f2e20bf826_n.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly"], "raw_text": "butterfly", "seconds": 0.973315}
+{"image": "6922698595_a287c14993_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["butterfly"], "raw_text": "butterfly", "seconds": 0.651046}
+{"image": "7097601917_8268e0e0e2_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "flower"], "raw_text": "octopus, flower", "seconds": 0.623868}
+{"image": "7168051606_cd3db21594_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["wolf", "tiger", "unknown"], "raw_text": "wolf,tiger,unknown", "seconds": 0.802145}
+{"image": "7175167317_c7737a063e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["mermaid", "unknown"], "raw_text": "mermaid, unknown", "seconds": 0.685232}
+{"image": "7292912506_95fa743dfd_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "crown", "unknown"], "raw_text": "bird,crown,unknown", "seconds": 1.058661}
+{"image": "7604522070_8c006e8017_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star", "ribbon", "flower", "leaf"], "raw_text": "star, ribbon, flower, leaf", "seconds": 1.096905}
+{"image": "7680443082_f51c1eba33_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["octopus", "tiger", "unknown"], "raw_text": "octopus,tiger,unknown", "seconds": 0.889287}
+{"image": "79533441_5b9c91f92f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger", "octopus", "snake"], "raw_text": "tiger, octopus, snake", "seconds": 1.101201}
+{"image": "7998951835_648e66a7fc_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "branch", "eagle", "leaf"], "raw_text": "bird, branch, eagle, leaf", "seconds": 0.951541}
+{"image": "8035756880_740f97a586_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "diamond", "skull", "unknown"], "raw_text": "flower,diamond,skull,unknown", "seconds": 0.910721}
+{"image": "8061458780_4b0748de43_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["cat", "flower"], "raw_text": "cat, flower", "seconds": 0.613162}
+{"image": "8150604679_a11f2c4b7f_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.569704}
+{"image": "8165390829_cc1aeea333_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["heart"], "raw_text": "heart", "seconds": 0.486285}
+{"image": "8165424962_7d52646d84.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["shark", "ribbon"], "raw_text": "shark, ribbon", "seconds": 0.632537}
+{"image": "8219066013_144c1bfe19_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["mermaid", "snake", "star"], "raw_text": "mermaid, snake, star", "seconds": 0.996508}
+{"image": "8271585939_2d974bc524_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl"], "raw_text": "owl", "seconds": 0.822543}
+{"image": "8293057211_c0bf787a9b_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.43816}
+{"image": "8293057255_e38660220e_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion"], "raw_text": "scorpion", "seconds": 0.587456}
+{"image": "8293057411_6e95f54b7d_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion", "unknown"], "raw_text": "scorpion, unknown", "seconds": 0.607491}
+{"image": "8294112690_be907382dd.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion"], "raw_text": "scorpion", "seconds": 0.458619}
+{"image": "8294112734_7fa89db3f3_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["scorpion"], "raw_text": "scorpion", "seconds": 0.508331}
+{"image": "8295290259_fd7e890725_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl"], "raw_text": "owl", "seconds": 0.542068}
+{"image": "8335402347_26699e17f3_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "unknown"], "raw_text": "bird, unknown", "seconds": 0.798242}
+{"image": "8371174041_23958c3527_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["gun", "unknown"], "raw_text": "gun, unknown", "seconds": 0.871544}
+{"image": "8585804763_1dafb29879_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.613686}
+{"image": "8591392918_9cd959148e_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl"], "raw_text": "owl", "seconds": 0.586093}
+{"image": "8639041766_3f434d3712_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["flower", "crown", "key", "shield", "unknown"], "raw_text": "flower,crown,key,shield,unknown", "seconds": 1.103501}
+{"image": "8639491242_a526d1eb70_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.421274}
+{"image": "866404766_1f310ff468_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["star"], "raw_text": "star", "seconds": 0.491791}
+{"image": "8690284353_a8e56a2a7c_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["diamond", "leaf", "ribbon"], "raw_text": "diamond, leaf, ribbon", "seconds": 0.593191}
+{"image": "8736928994_33441587f7_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["eagle", "butterfly", "unknown"], "raw_text": "eagle,butterfly,unknown", "seconds": 0.987021}
+{"image": "8755415401_6401f0e3a9_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["tiger"], "raw_text": "tiger", "seconds": 0.653581}
+{"image": "8756262613_b68a8965de_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["fish", "mermaid", "unknown"], "raw_text": "fish, mermaid, unknown", "seconds": 0.835695}
+{"image": "9277234_b898e1dcdd_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.593772}
+{"image": "9284242631_d2d089feda_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["owl", "skull"], "raw_text": "owl, skull", "seconds": 0.708934}
+{"image": "9290613883_1fff2466d7_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["bird", "branch", "leaf"], "raw_text": "bird, branch, leaf", "seconds": 0.702835}
+{"image": "9322299931_965c992cce_z.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.411877}
+{"image": "9830913_7c834e8dfa_c.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["unknown"], "raw_text": "unknown", "seconds": 0.460764}
+{"image": "990851528_8b5891c98a_b.jpg", "prompt_name": "P1_controlled_vocab", "pred_labels": ["lion", "shield"], "raw_text": "lion, shield", "seconds": 0.754695}

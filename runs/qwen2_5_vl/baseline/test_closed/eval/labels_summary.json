@@ -1,0 +1,29 @@
+{
+  "split": "test_closed",
+  "condition": "baseline",
+  "metric_summary_f1": {
+    "n": 254,
+    "mean": 0.7375170542493377,
+    "median": 0.75,
+    "p90": 1.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "metric_summary_fp": {
+    "n": 254,
+    "mean": 0.7559055118110236,
+    "median": 1.0,
+    "p90": 2.0,
+    "min": 0.0,
+    "max": 3.0
+  },
+  "metric_summary_fn": {
+    "n": 254,
+    "mean": 0.46062992125984253,
+    "median": 0.0,
+    "p90": 1.0,
+    "min": 0.0,
+    "max": 7.0
+  },
+  "n_perfect": 87
+}

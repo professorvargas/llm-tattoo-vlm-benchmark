@@ -1,0 +1,2 @@
+n_images,micro_precision,micro_recall,micro_f1,mean_jaccard,tp,fp,fn,min_area
+569,0.15996,0.279757,0.20354,0.176547,322,1691,829,200

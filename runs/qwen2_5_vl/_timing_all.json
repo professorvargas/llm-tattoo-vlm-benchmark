@@ -1,0 +1,62 @@
+[
+  {
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "condition": "baseline",
+    "split": "test_closed",
+    "n": 254,
+    "total_seconds": 189.922,
+    "gpu_hours": 0.05275611111111111,
+    "mean_seconds_per_unit": 0.74722,
+    "throughput_per_second": 1.337388
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "condition": "baseline",
+    "split": "test_open",
+    "n": 315,
+    "total_seconds": 223.281,
+    "gpu_hours": 0.0620225,
+    "mean_seconds_per_unit": 0.708374,
+    "throughput_per_second": 1.410776
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "condition": "crops_black",
+    "split": "test_closed",
+    "n": 519,
+    "total_seconds": 348.531,
+    "gpu_hours": 0.09681416666666667,
+    "mean_seconds_per_unit": 0.642364,
+    "throughput_per_second": 1.489109
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "condition": "crops_black",
+    "split": "test_open",
+    "n": 632,
+    "total_seconds": 367.14,
+    "gpu_hours": 0.10198333333333333,
+    "mean_seconds_per_unit": 0.551065,
+    "throughput_per_second": 1.721416
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "condition": "crops_white",
+    "split": "test_closed",
+    "n": 519,
+    "total_seconds": 328.331,
+    "gpu_hours": 0.09120305555555556,
+    "mean_seconds_per_unit": 0.602825,
+    "throughput_per_second": 1.580721
+  },
+  {
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "condition": "crops_white",
+    "split": "test_open",
+    "n": 632,
+    "total_seconds": 178.182,
+    "gpu_hours": 0.049495,
+    "mean_seconds_per_unit": 0.280642,
+    "throughput_per_second": 3.546937
+  }
+]

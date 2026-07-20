@@ -1,0 +1,7 @@
+model_id,condition,split,n,total_seconds,gpu_hours,mean_seconds_per_unit,throughput_per_second
+Qwen/Qwen2.5-VL-7B-Instruct,baseline,test_closed,254,189.922,0.05275611111111111,0.74722,1.337388
+Qwen/Qwen2.5-VL-7B-Instruct,baseline,test_open,315,223.281,0.0620225,0.708374,1.410776
+Qwen/Qwen2.5-VL-7B-Instruct,crops_black,test_closed,519,348.531,0.09681416666666667,0.642364,1.489109
+Qwen/Qwen2.5-VL-7B-Instruct,crops_black,test_open,632,367.14,0.10198333333333333,0.551065,1.721416
+Qwen/Qwen2.5-VL-7B-Instruct,crops_white,test_closed,519,328.331,0.09120305555555556,0.602825,1.580721
+Qwen/Qwen2.5-VL-7B-Instruct,crops_white,test_open,632,178.182,0.049495,0.280642,3.546937

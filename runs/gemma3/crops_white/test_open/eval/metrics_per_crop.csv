@@ -1,0 +1,1 @@
+image_id,crop_path,split,condition,seconds,pred_labels,gold_label,tp,fp,fn,precision,recall,f1,jaccard,hamming_loss,overprediction,pred_size,gold_size

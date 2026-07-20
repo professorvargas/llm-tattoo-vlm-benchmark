@@ -1,0 +1,5 @@
+[200] last_seconds=0.513
+[400] last_seconds=0.454
+Saved: runs/qwen2_5_vl/crops_black/test_closed/raw/p1_crop_test_closed.jsonl
+Saved: runs/qwen2_5_vl/crops_black/test_closed/eval/timing_summary.json
+Summary: {'model_id': 'Qwen/Qwen2.5-VL-7B-Instruct', 'split': 'test_closed', 'condition': 'crops_black', 'n_crops_ok': 519, 'n_total_lines': 519, 'total_seconds': 348.531, 'mean_seconds_per_crop': 0.642364, 'mean_seconds_excluding_first': 0.638696, 'median_seconds_per_crop': 0.49694, 'p90_seconds_per_crop': 0.723797, 'throughput_crops_per_second': 1.489109}

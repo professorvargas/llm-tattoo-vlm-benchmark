@@ -1,0 +1,29 @@
+{
+  "split": "test_closed",
+  "condition": "crops_white",
+  "metric_summary_f1": {
+    "n": 254,
+    "mean": 0.6829294065514537,
+    "median": 0.6666666666666666,
+    "p90": 1.0,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "metric_summary_fp": {
+    "n": 254,
+    "mean": 1.0078740157480315,
+    "median": 1.0,
+    "p90": 2.0,
+    "min": 0.0,
+    "max": 4.0
+  },
+  "metric_summary_fn": {
+    "n": 254,
+    "mean": 0.5551181102362205,
+    "median": 0.0,
+    "p90": 2.0,
+    "min": 0.0,
+    "max": 6.0
+  },
+  "n_perfect": 63
+}

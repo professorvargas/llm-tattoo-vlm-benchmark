@@ -1,0 +1,11 @@
+{
+  "model_id": "gemma3",
+  "split": "test_open",
+  "condition": "baseline",
+  "n_images": 569,
+  "total_seconds": 707.865,
+  "mean_seconds_per_image": 1.244051,
+  "median_seconds_per_image": 1.243,
+  "p90_seconds_per_image": 1.344,
+  "throughput_images_per_second": 0.803826
+}

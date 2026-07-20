@@ -1,0 +1,14 @@
+{
+  "model_id": "gemma3",
+  "split": "test_closed",
+  "condition": "crops_white",
+  "n_crops_ok": 519,
+  "n_total_lines": 519,
+  "total_seconds": 1003.726,
+  "mean_seconds_per_crop": 1.933961,
+  "mean_seconds_excluding_first": 1.933322,
+  "median_seconds_per_crop": 1.951,
+  "p90_seconds_per_crop": 2.425,
+  "throughput_crops_per_second": 0.517073,
+  "source_raw": "runs/gemma3/crops_white/test_closed/raw/p1_crop_white_test_closed.jsonl"
+}

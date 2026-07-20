@@ -1,0 +1,12 @@
+{
+  "model_id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
+  "split": "test_closed",
+  "condition": "baseline",
+  "n_images": 254,
+  "total_seconds": 385.49,
+  "mean_seconds_per_image": 1.517616,
+  "mean_seconds_excluding_first": 1.500938,
+  "median_seconds_per_image": 0.722643,
+  "p90_seconds_per_image": 3.643414,
+  "throughput_images_per_second": 0.658901
+}
