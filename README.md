@@ -1,62 +1,66 @@
-# tattoo-audit-artifact
+# TattooAudit
 
 Artifact repository for the paper:
 
-**TattooAudit: An Interactive Auditing Layer for Vision–Language Models in Open-Set Tattoo Analysis**
+**TattooAudit: A Benchmark-Grounded Interactive Expert-Review System for Open-Set Tattoo Analysis**
 
-This repository contains the benchmark-grounded artifact used in the study, including:
-- evaluation scripts
-- parsing rules
-- exported tables
-- ranking outputs
-- the Tattoo Audit dashboard source code
+## Overview
+
+TattooAudit combines a controlled Vision–Language Model benchmark with an interactive expert-review workflow for open-set tattoo analysis.
+
+The repository contains the experimental pipeline, normalized model outputs, evaluation tables, case-level audit-priority indicators, and the TattooAudit Streamlit application.
+
+The system supports two complementary research goals:
+
+1. evaluating the semantic naming behavior of general-purpose Vision–Language Models under original-image and reduced-context conditions; and
+2. transforming benchmark discrepancies into a transparent, structured, and traceable expert-review workflow.
+
+TattooAudit does not treat model predictions as final authority. The benchmark reference annotation remains authoritative, while model outputs provide supporting evidence for expert inspection.
 
 ## Dataset
 
-The public dataset used in the study is **TSSD2023**:  
+The study uses the publicly available test sets of the TSSD2023 benchmark:
+
 https://github.com/Brilhador/tssd2023
 
-## Objective
+TSSD2023 provides original tattoo images, pixel-level reference masks, and semantic labels for closed-set and open-set evaluation.
 
-This project evaluates Vision–Language Models (VLMs) in an **open-set** tattoo-analysis scenario using oracle segmentation derived from ground-truth masks. The goal is to isolate the **semantic naming** component of the models, rather than evaluating pixel-level segmentation.
+This repository should contain only data and derived artifacts that can be publicly redistributed. The non-public TSSD2023 training and validation images are not included.
 
-The study compares three input conditions:
-1. **Baseline**: full image
-2. **GT crop (black background)**: crop derived from the GT mask over a black background
-3. **GT crop (white background)**: crop derived from the GT mask over a white background
+## Experimental scope
+
+The study evaluates zero-shot multi-label semantic naming under oracle-segmentation conditions.
+
+The reference masks are treated as oracle segmentations, allowing the experiment to isolate semantic naming behavior without conflating it with mask-prediction errors.
+
+Each case is evaluated under three visual conditions:
+
+- **Original image:** the unmodified full image;
+- **GT-crop black:** a class-specific crop derived from the reference mask, rendered on a black background;
+- **GT-crop white:** the same class-specific foreground rendered on a white background.
+
+For images containing multiple reference classes, the pipeline processes each class-specific crop independently and aggregates the normalized crop-level predictions at the image level.
 
 ## Evaluated models
 
-- Gemma3
-- Qwen2.5-VL
-- LLaMA 3.2 Vision
+- Gemma3:12B
+- Qwen2.5-VL-7B
+- LLaMA 3.2 Vision 11B
 
-## Main metric
+The models operate under a controlled 35-label vocabulary that excludes background and includes the `unknown` label.
+
+## Prediction normalization
+
+Model outputs are normalized into sets of valid vocabulary labels.
 
 For each image:
-- `GT` = set of ground-truth labels
-- `Pred` = set of predicted labels after parsing and normalization
 
-Definitions:
-- `TP = |GT ∩ Pred|`
-- `FP = |Pred \ GT|`
-- `FN = |GT \ Pred|`
+- `GT` is the set of reference labels;
+- `Pred` is the normalized set of predicted labels.
 
-Dataset-level micro-F1:
-- `micro-F1 = 2TP / (2TP + FP + FN)`
+The evaluation computes:
 
-## Repository structure
-
-- `run_experiments.py`: general orchestration
-- `experiments/`: crop generation, VLM execution, parsing, metrics, aggregations, and figure/table generation
-- `data_meta/`: small metadata files
-- `environment.yml`: conda/mamba environment
-- `mvp_audit_streamlit.py`: main Tattoo Audit dashboard
-- `datasets/`: local data required to run the dashboard and reproduce the evaluated views
-
-## How to run the Tattoo Audit dashboard
-
-Run locally with:
-
-```bash
-streamlit run mvp_audit_streamlit.py
+```text
+TP = |GT ∩ Pred|
+FP = |Pred \ GT|
+FN = |GT \ Pred|
