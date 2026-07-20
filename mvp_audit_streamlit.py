@@ -3,72 +3,13 @@ from __future__ import annotations
 import ast
 import json
 import re
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
 import pandas as pd
 import streamlit as st
 from PIL import Image
-
-import streamlit as st
-
-st.set_page_config(page_title="Tattoo Audit MVP", layout="wide")
-
-st.html("""
-<style>
-/* Fonte geral da aplicação */
-html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
-    font-size: 22px !important;
-}
-
-/* Sidebar inteira */
-[data-testid="stSidebar"] * {
-    font-size: 20px !important;
-}
-
-/* Títulos */
-h1 { font-size: 2.2rem !important; }
-h2 { font-size: 3.8rem !important; }
-h3 { font-size: 1.5rem !important; }
-
-/* Markdown, textos, captions, listas */
-[data-testid="stMarkdownContainer"] p,
-[data-testid="stMarkdownContainer"] li,
-[data-testid="stCaptionContainer"],
-label,
-div,
-span {
-    font-size: 1.05rem !important;
-}
-
-/* Inputs e widgets */
-input, textarea, select, button {
-    font-size: 1rem !important;
-}
-
-/* Métricas */
-[data-testid="stMetricLabel"] p {
-    font-size: 1.2rem !important;
-}
-[data-testid="stMetricValue"] {
-    font-size: 2rem !important;
-}
-[data-testid="stMetricDelta"] {
-    font-size: 1rem !important;
-}
-
-/* Expander */
-[data-testid="stExpander"] summary {
-    font-size: 1.1rem !important;
-}
-
-/* Dataframe */
-[data-testid="stDataFrame"] * {
-    font-size: 18px !important;
-}
-</style>
-""")
-
 
 MODELS = {
     "Gemma3:12b": "runs/gemma3",
@@ -77,7 +18,9 @@ MODELS = {
 }
 
 VARIANTS = {
-    "baseline": "Baseline",
+    # Keep the internal key "baseline" because it matches the existing
+    # folders and JSONL filenames. Only the interface label changes.
+    "baseline": "Original image",
     "crops_black": "Crop Black",
     "crops_white": "Crop White",
 }
@@ -673,191 +616,752 @@ def show_image(title: str, image_path: Optional[Path]) -> None:
         st.image(image, width=320)
         st.caption(str(image_path))
 
+# -----------------------------------------------------------------------------
+# Data hygiene and expert-review helpers
+# -----------------------------------------------------------------------------
 
-st.html("""
-<h1 style="
-    font-size: 56px;
-    margin-bottom: 0.2rem;
-">
-    Tattoo Audit
-</h1>
-""")
-st.caption("Audit dashboard for audit-priority analysis.")
+def _find_case_column(df: pd.DataFrame) -> Optional[str]:
+    if df.empty:
+        return None
+    exact = {str(c).lower(): str(c) for c in df.columns}
+    for key in CASE_KEYS:
+        if key in exact:
+            return exact[key]
+    for col in df.columns:
+        lowered = str(col).lower()
+        if any(key in lowered for key in ["image_id", "case_id", "filename", "image"]):
+            return str(col)
+    return None
 
-with st.sidebar:
-    st.header("Parameters")
-    auto_repo_root = str(Path(__file__).resolve().parent)
-    use_custom_root = st.checkbox("Use manual path", value=False)
-    repo_root = auto_repo_root
 
-    if use_custom_root:
-        repo_root = st.text_input("Project root", value=auto_repo_root)
+def _clean_eval_table(df: pd.DataFrame, split: str, *, deduplicate: bool) -> pd.DataFrame:
+    if df.empty:
+        return df
+
+    cleaned = df.copy()
+    split_columns = [c for c in cleaned.columns if str(c).lower() == "split"]
+    if split_columns:
+        split_col = split_columns[0]
+        split_mask = cleaned[split_col].astype(str).str.strip().eq(split)
+        if split_mask.any():
+            cleaned = cleaned.loc[split_mask].copy()
+
+    if deduplicate:
+        case_col = _find_case_column(cleaned)
+        if case_col:
+            cleaned = cleaned.drop_duplicates(subset=[case_col], keep="last")
+
+    return cleaned.reset_index(drop=True)
+
+
+@st.cache_data(show_spinner=False)
+def load_variant_tables(repo_root: str, model_dir: str, split: str, variant: str) -> Dict[str, pd.DataFrame]:
+    """Load evaluation tables and remove duplicated cross-split records safely."""
+    root = Path(repo_root)
+    base = root / model_dir / variant / split / "eval"
+    return {
+        "metrics_per_image": _clean_eval_table(
+            read_csv_safe(base / "metrics_per_image.csv"), split, deduplicate=True
+        ),
+        "metrics_per_crop": _clean_eval_table(
+            read_csv_safe(base / "metrics_per_crop.csv"), split, deduplicate=False
+        ),
+        "pred_crop_labels": _clean_eval_table(
+            read_csv_safe(base / "pred_crop_labels_per_image.csv"), split, deduplicate=True
+        ),
+        "best_images": _clean_eval_table(
+            read_csv_safe(base / "best_images.csv"), split, deduplicate=True
+        ),
+        "worst_images": _clean_eval_table(
+            read_csv_safe(base / "worst_images.csv"), split, deduplicate=True
+        ),
+    }
+
+
+def load_label_vocabulary(repo_root: str) -> List[str]:
+    root = Path(repo_root)
+    candidates = [
+        root / "data_meta" / "tssd2023_id2name.json",
+        root / "datasets" / "tssd2023_id2name.json",
+        root / "datasets" / "data_meta" / "tssd2023_id2name.json",
+    ]
+    for path in candidates:
+        if not path.exists():
+            continue
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(payload, dict):
+                labels = [str(value).strip() for value in payload.values()]
+                return sorted({label for label in labels if label and label != "background"})
+            if isinstance(payload, list):
+                return sorted({str(value).strip() for value in payload if str(value).strip()})
+        except Exception:
+            continue
+
+    # Stable fallback based on the benchmark vocabulary.
+    return sorted({
+        "anchor", "bird", "branch", "butterfly", "cat", "crown", "diamond",
+        "dog", "eagle", "fire", "fish", "flower", "fox", "gun", "heart",
+        "key", "knife", "leaf", "lion", "mermaid", "octopus", "owl",
+        "ribbon", "rope", "scorpion", "shark", "shield", "skull", "snake",
+        "spider", "star", "tiger", "water", "wolf", "unknown",
+    })
+
+
+def expert_review_log_path(repo_root: str) -> Path:
+    directory = Path(repo_root) / "audit_logs"
+    directory.mkdir(parents=True, exist_ok=True)
+    return directory / "expert_review_log.csv"
+
+
+def read_expert_review_log(repo_root: str) -> pd.DataFrame:
+    path = expert_review_log_path(repo_root)
+    if not path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path, dtype=str).fillna("")
+    except Exception:
+        return pd.DataFrame()
+
+
+def append_expert_review(repo_root: str, payload: Dict[str, Any]) -> None:
+    path = expert_review_log_path(repo_root)
+    current = read_expert_review_log(repo_root)
+    new_row = pd.DataFrame([{key: "" if value is None else value for key, value in payload.items()}])
+
+    # Rewrite rather than append positionally. This keeps the CSV valid even if
+    # the schema evolves during prototyping.
+    if current.empty:
+        combined = new_row
     else:
-        st.text_input("Project root", value=auto_repo_root, disabled=True)
+        combined = pd.concat([current, new_row], ignore_index=True, sort=False)
+    combined.to_csv(path, index=False)
+
+
+def latest_reviews_by_case(review_log: pd.DataFrame) -> pd.DataFrame:
+    if review_log.empty or "case_id" not in review_log.columns:
+        return pd.DataFrame(columns=["case_id", "review_status", "review_action", "reviewer", "timestamp"])
+
+    ordered = review_log.copy()
+    if "timestamp" in ordered.columns:
+        ordered["_parsed_time"] = pd.to_datetime(ordered["timestamp"], errors="coerce", utc=True)
+        ordered = ordered.sort_values("_parsed_time", na_position="first")
+    latest = ordered.drop_duplicates(subset=["case_id"], keep="last")
+
+    keep = [c for c in ["case_id", "review_status", "review_action", "reviewer", "timestamp"] if c in latest.columns]
+    return latest[keep].copy()
+
+
+def build_review_queue(ranking: pd.DataFrame, review_log: pd.DataFrame) -> pd.DataFrame:
+    queue = ranking.copy()
+    latest = latest_reviews_by_case(review_log)
+    if not latest.empty:
+        queue = queue.merge(latest, on="case_id", how="left")
+
+    for column, default in [
+        ("review_status", "Pending"),
+        ("review_action", ""),
+        ("reviewer", ""),
+        ("timestamp", ""),
+    ]:
+        if column not in queue.columns:
+            queue[column] = default
+        else:
+            queue[column] = queue[column].replace("", pd.NA).fillna(default)
+
+    queue["band"] = queue["priority_score"].apply(priority_band)
+    return queue
+
+
+def latest_case_review(review_log: pd.DataFrame, case_id: str) -> Optional[pd.Series]:
+    if review_log.empty or "case_id" not in review_log.columns:
+        return None
+    case_rows = review_log[review_log["case_id"].astype(str) == str(case_id)].copy()
+    if case_rows.empty:
+        return None
+    if "timestamp" in case_rows.columns:
+        case_rows["_parsed_time"] = pd.to_datetime(case_rows["timestamp"], errors="coerce", utc=True)
+        case_rows = case_rows.sort_values("_parsed_time", na_position="first")
+    return case_rows.iloc[-1]
+
+
+def labels_to_text(labels: List[str]) -> str:
+    return ", ".join(labels) if labels else "None"
+
+
+def label_badges(labels: List[str], *, muted: bool = False) -> None:
+    if not labels:
+        st.caption("No labels available.")
+        return
+    css_class = "label-badge muted" if muted else "label-badge"
+    chips = "".join(
+        f'<span class="{css_class}">{str(label).strip()}</span>'
+        for label in labels
+        if str(label).strip()
+    )
+    st.markdown(f'<div class="label-row">{chips}</div>', unsafe_allow_html=True)
+
+
+def pretty_flag(flag: str) -> str:
+    text = str(flag)
+    text = text.replace(": unknown present", ": detected an unknown label")
+    text = text.replace(": flip black/white", ": predictions changed between black and white crops")
+    text = text.replace(": baseline/crops divergence", ": original-image and crop predictions disagree")
+    text = text.replace("crops_black", "black crop")
+    text = text.replace("crops_white", "white crop")
+    text = text.replace("baseline", "original image")
+    text = text.replace("high FP", "high overprediction")
+    return text
+
+
+def bool_value(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return False
+    return str(value).strip().lower() in {"true", "1", "yes", "y"}
+
+
+def variant_agreement_status(variants: Dict[str, Dict[str, Any]]) -> str:
+    sets = [normalize_label_set(variants[name].get("labels", [])) for name in VARIANTS]
+    if sets[0] == sets[1] == sets[2]:
+        return "Stable across contexts"
+    return "Context-sensitive"
+
+
+def model_evidence_frame(priority: Dict[str, Any]) -> pd.DataFrame:
+    rows: List[Dict[str, Any]] = []
+    for model_name, variants in priority["predictions"].items():
+        stability = variant_agreement_status(variants)
+        for variant_key, variant_title in VARIANTS.items():
+            payload = variants[variant_key]
+            rows.append({
+                "Model": model_name,
+                "Input": variant_title,
+                "Predicted labels": labels_to_text(payload.get("labels", [])),
+                "FP": payload.get("fp", ""),
+                "FN": payload.get("fn", ""),
+                "Unknown": bool_value(payload.get("unknown")),
+                "Context assessment": stability,
+            })
+    return pd.DataFrame(rows)
+
+
+def review_status_for_action(action: str) -> str:
+    mapping = {
+        "Confirm current reference": "Reviewed",
+        "Propose revised reference": "Revision proposed",
+        "Mark case as ambiguous": "Ambiguous",
+        "Send case to re-annotation": "Re-annotation requested",
+        "Exclude from high-confidence pool": "Excluded",
+    }
+    return mapping.get(action, "Reviewed")
+
+
+def safe_multiselect_defaults(options: List[str], current: List[str]) -> List[str]:
+    option_set = set(options)
+    return [label for label in current if label in option_set]
+
+
+def show_image_card(title: str, image_path: Optional[Path], *, caption_path: bool = False) -> None:
+    st.markdown(f"#### {title}")
+    image = open_image_if_exists(image_path)
+    if image is None:
+        st.info("Image not available for this case.")
+        return
+    st.image(image, width="stretch")
+    if caption_path:
+        st.caption(str(image_path))
+
+
+def render_priority_reasons(priority: Dict[str, Any]) -> None:
+    st.markdown("### Why this case was prioritized")
+    if not priority["flags"]:
+        st.success("No priority indicators were detected by the current heuristics.")
+        return
+    for flag in priority["flags"]:
+        st.markdown(f'<div class="reason-item">{pretty_flag(flag)}</div>', unsafe_allow_html=True)
+
+
+def render_latest_review_card(latest: Optional[pd.Series]) -> None:
+    if latest is None:
+        st.info("This case has not been reviewed yet.")
+        return
+    action = latest.get("review_action", "")
+    status = latest.get("review_status", "Reviewed")
+    reviewer = latest.get("reviewer", "")
+    timestamp = latest.get("timestamp", "")
+    st.markdown(
+        f"""
+        <div class="review-summary-card">
+          <div class="eyebrow">LATEST EXPERT DECISION</div>
+          <div class="review-summary-title">{status}</div>
+          <div class="review-summary-text">{action}</div>
+          <div class="review-summary-meta">{reviewer or 'Reviewer not recorded'} · {timestamp or 'Time not recorded'}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def inject_styles() -> None:
+    st.markdown(
+        """
+        <style>
+        :root {
+            --ta-ink: #172033;
+            --ta-muted: #667085;
+            --ta-line: #e4e7ec;
+            --ta-soft: #f7f8fa;
+            --ta-accent: #2f6fed;
+            --ta-accent-soft: #eef4ff;
+            --ta-warning-soft: #fff7e6;
+        }
+        .block-container {
+            max-width: 1480px;
+            padding-top: 1.6rem;
+            padding-bottom: 4rem;
+        }
+        [data-testid="stSidebar"] {
+            border-right: 1px solid var(--ta-line);
+        }
+        [data-testid="stSidebar"] .block-container {
+            padding-top: 1.3rem;
+        }
+        .app-kicker {
+            color: var(--ta-accent);
+            font-size: 0.78rem;
+            font-weight: 750;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+        .app-title {
+            color: var(--ta-ink);
+            font-size: clamp(2rem, 3.2vw, 3.5rem);
+            font-weight: 760;
+            line-height: 1.04;
+            margin: 0;
+        }
+        .app-subtitle {
+            color: var(--ta-muted);
+            font-size: 1.05rem;
+            margin-top: 0.55rem;
+            margin-bottom: 1.1rem;
+        }
+        .case-id {
+            color: var(--ta-muted);
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.88rem;
+            overflow-wrap: anywhere;
+        }
+        .section-card {
+            border: 1px solid var(--ta-line);
+            border-radius: 14px;
+            padding: 1rem 1.1rem;
+            background: white;
+            margin-bottom: 0.8rem;
+        }
+        .label-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin: 0.4rem 0 0.75rem 0;
+        }
+        .label-badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 0.28rem 0.62rem;
+            background: var(--ta-accent-soft);
+            border: 1px solid #cddcff;
+            color: #234f9d;
+            font-size: 0.86rem;
+            font-weight: 650;
+        }
+        .label-badge.muted {
+            background: #f2f4f7;
+            border-color: #e4e7ec;
+            color: #475467;
+        }
+        .reason-item {
+            border-left: 4px solid #f79009;
+            background: var(--ta-warning-soft);
+            border-radius: 7px;
+            padding: 0.72rem 0.85rem;
+            margin: 0.48rem 0;
+            color: #7a2e0e;
+        }
+        .review-summary-card {
+            border: 1px solid #cddcff;
+            background: var(--ta-accent-soft);
+            border-radius: 14px;
+            padding: 1rem 1.05rem;
+            margin-bottom: 0.9rem;
+        }
+        .eyebrow {
+            color: #475467;
+            font-size: 0.72rem;
+            font-weight: 750;
+            letter-spacing: 0.08em;
+        }
+        .review-summary-title {
+            color: var(--ta-ink);
+            font-size: 1.25rem;
+            font-weight: 760;
+            margin-top: 0.2rem;
+        }
+        .review-summary-text {
+            color: #344054;
+            margin-top: 0.25rem;
+        }
+        .review-summary-meta {
+            color: var(--ta-muted);
+            font-size: 0.82rem;
+            margin-top: 0.45rem;
+        }
+        [data-testid="stMetric"] {
+            border: 1px solid var(--ta-line);
+            border-radius: 12px;
+            padding: 0.65rem 0.8rem;
+            background: white;
+        }
+        [data-testid="stMetricLabel"] {
+            color: var(--ta-muted);
+        }
+        [data-testid="stForm"] {
+            border: 1px solid var(--ta-line);
+            border-radius: 14px;
+            padding: 1rem;
+            background: var(--ta-soft);
+        }
+        [data-testid="stDataFrame"] {
+            border: 1px solid var(--ta-line);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        div[data-testid="stExpander"] {
+            border: 1px solid var(--ta-line);
+            border-radius: 10px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def main() -> None:
+    st.set_page_config(
+        page_title="TattooAudit — Expert Review",
+        page_icon="🔎",
+        layout="wide",
+        initial_sidebar_state="expanded",
+    )
+    inject_styles()
 
     split = "test_open"
+    auto_repo_root = str(Path(__file__).resolve().parent)
 
-    ranking = build_case_ranking(repo_root, split)
-    max_observed_score = observed_max_priority(ranking)
-    max_theoretical_score = theoretical_max_priority()
+    with st.sidebar:
+        st.markdown("## Review queue")
+        st.caption("Triage cases and open one case for expert review.")
 
-    if ranking.empty:
-        st.warning("No cases found. Check the project root.")
-        st.stop()
+        use_custom_root = st.checkbox("Use manual project path", value=False)
+        if use_custom_root:
+            repo_root = st.text_input("Project root", value=auto_repo_root)
+        else:
+            repo_root = auto_repo_root
+            st.text_input("Project root", value=auto_repo_root, disabled=True)
 
-    min_priority = st.slider(
-        "Minimum priority",
-        min_value=0,
-        max_value=max_observed_score,
-        value=0,
-        step=1,
-    )
+        with st.spinner("Building the review queue..."):
+            ranking = build_case_ranking(repo_root, split)
 
-    filtered = ranking[ranking["priority_score"] >= min_priority]
+        if ranking.empty:
+            st.error("No test_open cases were found. Check the project root and dataset folders.")
+            st.stop()
 
-    if filtered.empty:
-        st.warning("No cases match the selected minimum priority.")
-        st.stop()
+        review_log = read_expert_review_log(repo_root)
+        queue = build_review_queue(ranking, review_log)
+        max_observed_score = observed_max_priority(ranking)
+        max_theoretical_score = theoretical_max_priority()
 
-    case_id = st.selectbox("Case (Select Tattoo)", filtered["case_id"].tolist())
+        min_priority = st.slider(
+            "Minimum audit priority",
+            min_value=0,
+            max_value=max_observed_score,
+            value=0,
+            step=1,
+        )
+        status_filter = st.selectbox(
+            "Review status",
+            ["All cases", "Pending", "Reviewed or routed"],
+            index=0,
+        )
 
-priority = compute_priority(repo_root, split, case_id)
-assets = panel_assets(repo_root, split, case_id)
-crop_pairs = crop_pairs_by_label(repo_root, split, case_id)
-gt_labels = gt_labels_from_crops(repo_root, split, case_id)
+        filtered = queue[queue["priority_score"] >= min_priority].copy()
+        if status_filter == "Pending":
+            filtered = filtered[filtered["review_status"] == "Pending"]
+        elif status_filter == "Reviewed or routed":
+            filtered = filtered[filtered["review_status"] != "Pending"]
 
-col_a, col_b = st.columns([1.2, 1.0])
+        if filtered.empty:
+            st.warning("No cases match the selected filters.")
+            st.stop()
 
-with col_a:
-    show_image("Baseline image", assets["baseline"])
+        selected_cases = filtered["case_id"].astype(str).tolist()
+        case_id = st.selectbox(
+            "Case",
+            selected_cases,
+            format_func=lambda case: f"{case} · priority {int(queue.loc[queue['case_id'] == case, 'priority_score'].iloc[0])}",
+        )
 
-with col_b:
-    show_image("Mask / reference", assets["mask"])
-
-if crop_pairs:
-    st.markdown("---")
-    st.markdown("### All GT-derived crops")
-
-    for pair in crop_pairs:
-        st.markdown(f"**Label: {pair['label']}**")
+        total_cases = len(queue)
+        reviewed_cases = int((queue["review_status"] != "Pending").sum())
+        pending_cases = total_cases - reviewed_cases
+        st.markdown("---")
         c1, c2 = st.columns(2)
-        with c1:
-            show_image(f"Black crop: {pair['label']}", pair["black"])
-        with c2:
-            show_image(f"White crop: {pair['label']}", pair["white"])
+        c1.metric("Pending", pending_cases)
+        c2.metric("Reviewed", reviewed_cases)
+        st.caption(f"Dataset fixed to {split}. Score range: 0–{max_observed_score} observed.")
 
-st.markdown("---")
-st.markdown("### Ground-truth labels")
-if gt_labels:
-    st.write(gt_labels)
-else:
-    st.caption("No GT labels found for this case.")
+    priority = compute_priority(repo_root, split, case_id)
+    assets = panel_assets(repo_root, split, case_id)
+    crop_pairs = crop_pairs_by_label(repo_root, split, case_id)
+    gt_labels = gt_labels_from_crops(repo_root, split, case_id)
+    vocabulary = load_label_vocabulary(repo_root)
+    latest_review = latest_case_review(review_log, case_id)
 
-metric1, metric2, metric3, metric4 = st.columns(4)
-metric1.metric("Audit-priority score", f"{priority['score']} / {max_observed_score}")
-metric2.metric("Band", priority_band(priority["score"]))
-metric3.metric("Flags", len(priority["flags"]))
-metric4.metric("Dataset", "test_open")
-
-st.caption(
-    f"Audit-priority score is a relative audit-priority index. "
-    f"Max observed in this split: {max_observed_score}. "
-    f"Theoretical max under current heuristics: {max_theoretical_score}."
-)
-
-if priority["flags"]:
-    st.markdown("### Why this case received this priority")
-    for flag in priority["flags"]:
-        st.write(f"- {flag}")
-else:
-    st.success("No priority indicators detected by the current heuristics.")
-
-st.markdown("### Predictions by model")
-for model_name, variants in priority["predictions"].items():
-    st.subheader(model_name)
-    cols = st.columns(3)
-    for idx, variant in enumerate(["baseline", "crops_black", "crops_white"]):
-        payload = variants[variant]
-        with cols[idx]:
-            st.markdown(f"**{VARIANTS[variant]}**")
-            st.write("Labels:", payload["labels"] or [])
-            if payload["gt_labels"]:
-                st.write("GT:", payload["gt_labels"])
-            if payload["fp"] is not None:
-                st.write("FP:", payload["fp"])
-            if payload["fn"] is not None:
-                st.write("FN:", payload["fn"])
-            if payload["unknown"] is not None:
-                st.write("Unknown:", payload["unknown"])
-            row = payload.get("row")
-            if row is not None:
-                with st.expander("Row details"):
-                    row_df = build_row_details(payload, case_id, split).copy()
-                    row_df["field"] = row_df["field"].astype(str)
-                    row_df["value"] = row_df["value"].astype(str)
-                    st.dataframe(row_df, width="stretch", hide_index=True)
-
-st.markdown("---")
-st.markdown("### Human audit")
-with st.form("audit_form"):
-    auditor = st.text_input("Auditor")
-    audit_decision = st.selectbox(
-    "Audit decision",
-    ["confirmed priority", "rejected priority", "uncertain"]
-)
-    policy_relevance = st.selectbox(
-        "Potential public policy relevance",
-        ["high", "medium", "low", "not assessed"],
-        index=3,
+    st.markdown('<div class="app-kicker">Human-in-the-loop inspection</div>', unsafe_allow_html=True)
+    st.markdown('<h1 class="app-title">TattooAudit</h1>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="app-subtitle">Expert review workspace for prioritizing, inspecting, and routing semantically unstable tattoo cases.</div>',
+        unsafe_allow_html=True,
     )
-    comment = st.text_area("Short comment")
-    submitted = st.form_submit_button("Save decision")
+    st.markdown(f'<div class="case-id">Selected case: {case_id}</div>', unsafe_allow_html=True)
 
-if submitted:
-    append_audit_decision(
-        repo_root,
-        {
-            "case_id": case_id,
-            "split": split,
-            "auditor": auditor,
-            "decision": audit_decision,
-            "policy_relevance": policy_relevance,
-            "priority_score": priority["score"],
-            "flags": " | ".join(priority["flags"]),
-            "comment": comment,
-        },
+    metric1, metric2, metric3, metric4 = st.columns(4)
+    metric1.metric("Audit-priority score", f"{priority['score']} / {max_observed_score}")
+    metric2.metric("Priority band", priority_band(priority["score"]))
+    metric3.metric("Triggered indicators", len(priority["flags"]))
+    metric4.metric("Review status", latest_review.get("review_status", "Pending") if latest_review is not None else "Pending")
+
+    st.caption(
+        f"The score is a relative triage index, not an error probability. "
+        f"Observed maximum: {max_observed_score}; theoretical maximum under the current heuristics: {max_theoretical_score}."
     )
-    st.success(f"Decision saved to {audit_log_path(repo_root)}")
 
-st.markdown("---")
-st.markdown("### Case ranking")
-ranking_view = ranking.copy()
-ranking_view["band"] = ranking_view["priority_score"].apply(priority_band)
-ranking_view["priority_score_display"] = ranking_view["priority_score"].apply(
-    lambda x: f"{x} / {max_observed_score}"
-)
-
-ranking_view = ranking_view.rename(
-    columns={
-        "case_id": "Case",
-        "priority_score": "Audit-priority score (raw)",
-        "priority_score_display": "Audit-priority score",
-        "n_flags": "Flags",
-        "band": "Band",
-    }
-)
-
-st.dataframe(
-    ranking_view[["Case", "Audit-priority score", "Band", "Flags", "flags"]],
-    width="stretch",
-    hide_index=True,
-)
-
-log_file = audit_log_path(repo_root)
-if log_file.exists():
-    st.download_button(
-        label="Download audit log",
-        data=log_file.read_bytes(),
-        file_name=log_file.name,
-        mime="text/csv",
+    review_tab, evidence_tab, history_tab, queue_tab = st.tabs(
+        ["Case review", "Model evidence", "Decision history", "Review queue"]
     )
+
+    with review_tab:
+        left, right = st.columns([1.65, 1.0], gap="large")
+
+        with left:
+            st.markdown("## Case evidence")
+            image_col, mask_col = st.columns(2, gap="medium")
+            with image_col:
+                show_image_card("Original image", assets["baseline"])
+            with mask_col:
+                show_image_card("Reference mask", assets["mask"])
+
+            st.markdown("### Current expert reference")
+            label_badges(gt_labels)
+            st.caption("The reference annotation remains the primary authority. Model outputs provide supporting evidence for review.")
+
+            if crop_pairs:
+                with st.expander("Inspect GT-derived black and white crops", expanded=False):
+                    for pair in crop_pairs:
+                        st.markdown(f"#### Reference label: {pair['label']}")
+                        black_col, white_col = st.columns(2)
+                        with black_col:
+                            show_image_card("Black-background crop", pair["black"])
+                        with white_col:
+                            show_image_card("White-background crop", pair["white"])
+                        st.markdown("---")
+
+            render_priority_reasons(priority)
+
+        with right:
+            st.markdown("## Expert decision")
+            render_latest_review_card(latest_review)
+
+            with st.form(f"expert_review_form_{case_id}", clear_on_submit=False):
+                reviewer = st.text_input("Reviewer name")
+                action = st.radio(
+                    "Review action",
+                    [
+                        "Confirm current reference",
+                        "Propose revised reference",
+                        "Mark case as ambiguous",
+                        "Send case to re-annotation",
+                        "Exclude from high-confidence pool",
+                    ],
+                )
+                reviewed_labels = st.multiselect(
+                    "Reference labels after review",
+                    options=vocabulary,
+                    default=safe_multiselect_defaults(vocabulary, gt_labels),
+                    help="Keep the current labels when confirming the reference, or edit them when proposing a revision.",
+                )
+                additional_label = st.text_input(
+                    "Additional label not listed above (optional)",
+                    placeholder="Type one label only when the vocabulary does not contain it",
+                )
+                confidence = st.selectbox(
+                    "Reviewer confidence",
+                    ["High", "Medium", "Low", "Not assessed"],
+                    index=3,
+                )
+                operational_relevance = st.selectbox(
+                    "Operational relevance",
+                    ["Not assessed", "Low", "Medium", "High"],
+                    index=0,
+                )
+                rationale = st.text_area(
+                    "Decision rationale",
+                    placeholder="Briefly explain the evidence that supports this decision.",
+                    height=130,
+                )
+                submitted = st.form_submit_button("Save expert decision", type="primary")
+
+            if submitted:
+                final_labels = [label for label in reviewed_labels if label]
+                if additional_label.strip():
+                    final_labels.append(additional_label.strip())
+                final_labels = sorted(dict.fromkeys(final_labels))
+
+                validation_error = None
+                if not reviewer.strip():
+                    validation_error = "Enter the reviewer name before saving."
+                elif action != "Confirm current reference" and not rationale.strip():
+                    validation_error = "Add a short rationale for revision, ambiguity, routing, or exclusion decisions."
+                elif action == "Propose revised reference" and not final_labels:
+                    validation_error = "Select at least one proposed reference label."
+
+                if validation_error:
+                    st.error(validation_error)
+                else:
+                    payload = {
+                        "timestamp": datetime.now().astimezone().isoformat(timespec="seconds"),
+                        "case_id": case_id,
+                        "split": split,
+                        "reviewer": reviewer.strip(),
+                        "review_action": action,
+                        "review_status": review_status_for_action(action),
+                        "original_reference_labels": ";".join(gt_labels),
+                        "reviewed_reference_labels": ";".join(final_labels),
+                        "reviewer_confidence": confidence,
+                        "operational_relevance": operational_relevance,
+                        "priority_score": priority["score"],
+                        "priority_band": priority_band(priority["score"]),
+                        "priority_flags": " | ".join(priority["flags"]),
+                        "rationale": rationale.strip(),
+                    }
+                    append_expert_review(repo_root, payload)
+                    st.success(f"Expert decision saved to {expert_review_log_path(repo_root)}")
+                    st.rerun()
+
+    with evidence_tab:
+        st.markdown("## Model evidence")
+        st.info("The VLM outputs support expert inspection; they do not replace the reference annotation or the expert's final judgment.")
+
+        overview = model_evidence_frame(priority)
+        st.dataframe(
+            overview,
+            width="stretch",
+            hide_index=True,
+            column_config={
+                "FP": st.column_config.NumberColumn(format="%d"),
+                "FN": st.column_config.NumberColumn(format="%d"),
+                "Unknown": st.column_config.CheckboxColumn(),
+            },
+        )
+
+        for model_name, variants in priority["predictions"].items():
+            with st.expander(
+                f"{model_name} — {variant_agreement_status(variants)}",
+                expanded=False,
+            ):
+                model_cols = st.columns(3, gap="medium")
+                for index, variant_key in enumerate(["baseline", "crops_black", "crops_white"]):
+                    payload = variants[variant_key]
+                    with model_cols[index]:
+                        st.markdown(f"### {VARIANTS[variant_key]}")
+                        st.markdown("**Predicted labels**")
+                        label_badges(payload.get("labels", []), muted=False)
+
+                        m1, m2 = st.columns(2)
+                        m1.metric("FP", payload.get("fp", "—"))
+                        m2.metric("FN", payload.get("fn", "—"))
+                        st.caption(f"Unknown: {'Yes' if bool_value(payload.get('unknown')) else 'No'}")
+
+                        with st.expander("Technical metrics", expanded=False):
+                            details = build_row_details(payload, case_id, split).copy()
+                            details["field"] = details["field"].astype(str)
+                            details["value"] = details["value"].astype(str)
+                            st.dataframe(details, width="stretch", hide_index=True)
+
+    with history_tab:
+        st.markdown("## Decision history")
+        if review_log.empty or "case_id" not in review_log.columns:
+            st.info("No expert decisions have been recorded yet.")
+        else:
+            case_history = review_log[review_log["case_id"].astype(str) == str(case_id)].copy()
+            if case_history.empty:
+                st.info("This case has no recorded decisions.")
+            else:
+                preferred = [
+                    "timestamp", "reviewer", "review_status", "review_action",
+                    "original_reference_labels", "reviewed_reference_labels",
+                    "reviewer_confidence", "operational_relevance", "rationale",
+                ]
+                columns = [column for column in preferred if column in case_history.columns]
+                st.dataframe(case_history[columns].iloc[::-1], width="stretch", hide_index=True)
+
+        log_path = expert_review_log_path(repo_root)
+        if log_path.exists():
+            st.download_button(
+                "Download expert review log",
+                data=log_path.read_bytes(),
+                file_name=log_path.name,
+                mime="text/csv",
+            )
+
+    with queue_tab:
+        st.markdown("## Review queue")
+        st.caption("The queue preserves the original audit-priority heuristic and adds the latest human-review status.")
+
+        queue_view = queue.copy()
+        queue_view["Audit-priority"] = queue_view["priority_score"].apply(
+            lambda value: f"{int(value)} / {max_observed_score}"
+        )
+        queue_view = queue_view.rename(columns={
+            "case_id": "Case",
+            "band": "Band",
+            "n_flags": "Indicators",
+            "review_status": "Review status",
+            "review_action": "Latest action",
+            "reviewer": "Reviewer",
+            "timestamp": "Last reviewed",
+        })
+        display_columns = [
+            "Case", "Audit-priority", "Band", "Indicators",
+            "Review status", "Latest action", "Reviewer", "Last reviewed",
+        ]
+        st.dataframe(
+            queue_view[display_columns],
+            width="stretch",
+            hide_index=True,
+        )
+
+        st.download_button(
+            "Download review queue",
+            data=queue_view[display_columns].to_csv(index=False).encode("utf-8"),
+            file_name="tattoo_audit_review_queue.csv",
+            mime="text/csv",
+        )
+
+
+if __name__ == "__main__":
+    main()
